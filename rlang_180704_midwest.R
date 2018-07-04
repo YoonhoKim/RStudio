@@ -14,7 +14,7 @@
 
 install.packages("ggplot2")
 library(ggplot2)
-read.csv(file =)
+midwest <- as.data.frame(ggplot2::midwest)
 x <- c(midwest)
 x
 rm(x)
