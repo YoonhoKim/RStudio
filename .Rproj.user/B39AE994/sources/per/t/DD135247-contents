@@ -1,0 +1,206 @@
+help("solve")
+?solve
+#java : int a = 3;
+#system.out.println(a);
+a <- "3"
+a
+b <- 4
+b
+c <- a + b
+a <- c(1,2,3,4)
+a
+a <- c(1,"2",3,"4")
+a
+# int[] arr = new int[3];
+# arr[0] = 1;
+# arr[1] = 2;
+# arr[2] = 3;
+# arr <- c(1,2,3)
+x <- c(1,2,3,4,5,6,7,8,9,10)
+sum(x-mean(x)^2)/(length(x)-1)
+
+?seq
+x <- seq(length=100,from=1,by=1)
+sum(x)
+
+# 가위 : 0 바위 : 1 보자기 : 2
+?sample
+#
+my <- 1
+my
+com <- 
+  com 
+if(my - com == 2 || my - com == -1) print ("짐") else 
+  if(my - com == -2 || my - com == 1) print ("이김") else 
+    if(my - com == 0) print("비김")
+my - com
+
+# switch
+com <- sample(0:2,1,replace = TRUE)
+my <- 2
+cat("컴퓨터 : ",com)
+cat("결과 : ",toString(com - my))
+x <- switch(
+  toString(com - my),
+  '-2' = "이김",
+  '1' = "이김",
+  '2' = "짐",
+  '-1' = "짐",
+  '0' = "비김"
+)
+print(x)
+
+# BMI switch
+height <- 167
+weight <- 67
+BMI <- (weight)/(height*height/10000)
+cat("BMI : ",BMI)
+if(BMI<18.5) res <- "저체중" else 
+if(BMI<23) res <- "정상"else 
+if(BMI<25) res <- " 비만 전단계"else 
+if(BMI<30) res <- "1단계 비만"else 
+if(BMI<35) res <- "2단계 비만"else
+res <- "3단계 비만"
+print(BMI)
+print(res)
+
+
+#vector 만들기
+print(
+  c(1:10)
+)
+print(
+  seq(from=1,to=10,by=2)
+)
+print(
+  seq(from=1,length=10,by=2)
+)
+print(
+  seq(1:5)
+)
+print(
+  rep(1:5)
+)
+print(
+  rep(1:5,each=2)
+)
+print(
+  rep(1:5,times=2)
+)
+print(
+  rep(1:5,each=2,times=3)
+)
+print(
+  rep(1:5,times=3,each=2)
+)
+print(
+  rep(1:5,times=3,each=2,len=5)
+)
+print(
+  rep(1:5,each=2,times=3,len=5)
+)
+# 기본타입 : character, wide character, integer
+# floating point : double, floating point, Boolean etc..
+# R-Objects : vector, List, Matric, Array, Factor, Data Frame
+# vector 의 6개 타입
+# Logical(T,F), Numeric(실수), integer(정수)
+# Complex(허수), Character(문자열), Raw(주소값)
+
+num1 <- c(3,3,5)
+num2 <- c(2,3,4)
+cat(num1, opcode, num2, "=",n)
+x <- switch(
+  opcode,
+  '+' = num1 + num2,
+  '-' = num1 - num2,
+  '*' = num1 * num2,
+  '/' = num1 / num2,
+  
+)
+
+v <- c(1:100)
+for (i in v){
+  if(i<=4) cat(i,'+ ') else 
+    cat(i,'=',(sum(v))) 
+}
+
+cnt <- 1
+su <- 1
+repeat{
+  cat(cnt,'+ ')
+  cnt<-cnt+1
+  su<-su + cnt
+  if(cnt>=5){
+    cat(cnt,'=',su)
+    break
+  } 
+}   
+
+total <- 0
+for(i in 1:100){
+  if(i<100){
+    if(i %% 2 == 0){
+      total <- total - i
+      cat(i,'+ ')
+    }
+    else if(i %% 2 == 1){
+      total <- total + i
+      cat(i,'- ') 
+    }
+  }
+  else if(i==100)
+    cat(i,'=',total - i)
+}
+#R식 인터프리터 언어 코딩
+for(i in 1:100){
+  if(i == 100)
+    cat(i,'=',sum(seq(1,99,2))-sum(seq(2,100,2))) 
+  else if(i %% 2 == 0)
+    cat(i,'+')
+  else
+    cat(i,'-')
+}
+
+#국어 영어 수학점수를 받아 평균으로 점수를 낼것
+#이름 총점 평균 등급
+name <- "김계동"
+kor <- 90
+eng <- 80
+math <- 70
+score <- kor+eng+math
+# cat(name,'|',score,'|',score/3,'|',(if(score/3<=100 && score/3 >= 90) 
+#   'A' else if(score/3 >= 80)
+#     'B' else if(score/3 >= 70)
+#       'C' else if(score/3 >= 60)
+#         'D' else if(score/3 >= 50)
+#           'E' else 
+#             'F'))
+x <- switch(
+  toString(round(score%/%30),0),
+  '9' = 'A',
+  '8' = 'B',
+  '7' = 'C',
+  '6' = 'D',
+  '5' = 'E',
+  'F'
+)
+cat(name,'|',score,'|',score/3,'|',x)
+
+
+myGrade3 <- function(){
+  subject <- c("국어", "영어", "수학")
+  i <- 1
+  print("이름을 입력하세요")
+  name <- as.character(readline())
+  for(s in subject){
+    cat(s, "점수를 입력하세요")
+    score[i] <- as.integer(readline())
+    i <- i+1
+  }
+  total <- sum(score)
+  avg <- mean(total)
+  ifelse(avg<=100 & avg>=90, grade <- "A",
+         ifelse(avg<90 & avg>=80, grade <- "B", grade <- "C"))
+  cat("이름: ", name, "총점: ", total, "평균: ", avg, "등급: ", grade)
+}
+myGrade3()
